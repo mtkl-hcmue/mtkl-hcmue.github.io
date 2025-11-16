@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("background1.gif");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gif-background {
+  width: 100%;
+  height: 100%;
+  background-repeat: none;
+  background-size: cover;
+  overflow: hidden;
+}
+.shark {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+
+  animation-name: fish;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+
+  animation-direction: alternate;
+  /* animation-delay: 3s; */
+}
+
+@keyframes fish {
+
+  0% {left: 0px; top: 0px;}
+  100% {left: 0px; top: 550px;}
+  /* 100% {left: 1000px;} */
+}
+
+@keyframes swimHorizontal {
+  0% {
+    left: 0;
+    transform: scaleX(1);
+  }
+  50% {
+    left: calc(100vw - var(--fish-width));
+    transform: scaleX(1);
+  }
+  51% {
+    transform: scaleX(-1);
+  }
+  100% {
+    left: 0;
+    transform: scaleX(-1);
+  }
+}
+@keyframes swimHorizontal_reverse {
+  0% {
+    left: calc(100vw - var(--fish-width)); /* start from right edge */
+    transform: scaleX(-1); /* face left */
+  }
+  49% {
+    left: 0; /* swim to left edge */
+    transform: scaleX(-1); /* still face left */
+  }
+  50% {
+    left: 0;
+    transform: scaleX(1); /* flip to face right */
+  }
+  100% {
+    left: calc(100vw - var(--fish-width));
+    transform: scaleX(1); /* swim back to right edge */
+  }
+}
+
+@keyframes diverUpDown {
+  0% { top: 80vh; }
+  50% { top: 0; }
+  100% { top: 80vh; }
+}
+@keyframes diverDownUp {
+  0% { top: 40px; }
+  /* 50% { top: 340px; } */
+  100% { top: 600px; }
+}
+
+#shark, #diver1, #diver2, #diver3, #goldFishSchool, #turtle, #faintSchool {
+  position: absolute;
+  z-index: 10;
+}
+#shark {
+  --fish-width: 450px;
+  width: var(--fish-width);
+  top: 450px;
+  animation: swimHorizontal 10s linear infinite;
+}
+
+
+/* Rùa */
+#turtle {
+  --fish-width: 250px;
+  width: var(--fish-width);
+  bottom: 10px;
+  animation: swimHorizontal_reverse 23s linear infinite;
+}
+
+/* Cá faint */
+#faintSchool {
+  --fish-width: 250px;
+  width: var(--fish-width);
+  top: 370px;
+
+
+  animation: swimHorizontal_reverse 22s linear infinite;
+  /* animation-delay: 1s; */
+  animation-direction: reverse;
+  /* transform: scaleX(-1); */
+}
+
+/* Cá vàng */
+#goldFishSchool {
+  --fish-width: 250px;
+  width: var(--fish-width);
+  top: 270px;
+  
+  animation: swimHorizontal 23s ease-out infinite;
+}
+
+/* ===== Ba thợ lặn lên xuống ===== */
+#diver1 {
+  width: 250px;
+  left: 200px;
+  animation: diverDownUp 3.5s ease-in-out infinite alternate;
+  animation-delay: 2s;
+}
+
+#diver2 {
+  width: 250px;
+  left: 700px;
+  animation: diverUpDown 9s ease-in-out infinite;
+}
+
+#diver3 {
+  width: 250px;
+  left: 1200px;
+  /* top:100px; */
+  animation: diverDownUp 7s linear infinite alternate;
+  /* animation-delay: 5s; */
+  /* animation-direction : reverse; */
+}
+/* button changing background and music */
+button {
+ display: inline-block;
+ /* position: absolute; */
+ width: 160px;
+ height: 60px;
+ border-radius: 10px;
+ border: 1px solid #03045e;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.5s ease-in;
+ background-color: rgba(255, 255, 255, 0.616);
+ z-index: 1;
+}
+
+button::before,
+button::after {
+ content: '';
+ position: absolute;
+ top: 0;
+ width: 0;
+ height: 100%;
+ transform: skew(15deg);
+ transition: all 0.5s;
+ overflow: hidden;
+ z-index: -1;
+}
+
+button::before {
+ left: -10px;
+ background: #240046;
+}
+
+button::after {
+ right: -10px;
+ background: #5a189a;
+}
+
+button:hover::before,
+button:hover::after {
+ width: 58%;
+}
+
+button:hover span {
+ color: #e0aaff;
+ transition: 0.3s;
+}
+
+button span {
+ color: #03045e;
+ font-size: 17px;
+ transition: all 0.3s ease-in;
+}
+
+
+.bubbles {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.704);
+  border-radius: 50%;
+  animation: rise 8s linear infinite;
+}
+
+/* Bong bóng bay lên */
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Tạo bong bóng nhiều kích thước và tốc độ khác nhau */
+.bubble:nth-child(1) { left: 10%; width: 15px; height: 15px; animation-duration: 7s; animation-delay: 1s; }
+.bubble:nth-child(2) { left: 25%; width: 20px; height: 20px; animation-duration: 9s; animation-delay: 3s; }
+.bubble:nth-child(3) { left: 40%; width: 25px; height: 25px; animation-duration: 10s; animation-delay: 2s; }
+.bubble:nth-child(4) { left: 55%; width: 18px; height: 18px; animation-duration: 8s; animation-delay: 4s; }
+.bubble:nth-child(5) { left: 70%; width: 22px; height: 22px; animation-duration: 9s; animation-delay: 1.5s; }
+.bubble:nth-child(6) { left: 85%; width: 12px; height: 12px; animation-duration: 7s; animation-delay: 3.5s; }
+.bubble:nth-child(7) { left: 30%; width: 28px; height: 28px; animation-duration: 11s; animation-delay: 2.5s; }
+.bubble:nth-child(8) { left: 90%; width: 18px; height: 18px; animation-duration: 8s; animation-delay: 5s; }
+.bubble:nth-child(9) { left: 67%; width: 28px; height: 28x; animation-duration: 8s; animation-delay: 5s; }

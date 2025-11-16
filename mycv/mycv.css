@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+* 
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Poppins', sans-serif; */
+
+    font-family: 'Roboto Slab', serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: lightblue;
+    /* background-color: #ede2d3; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    background: rgb(255, 255, 255);
+
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 1200px;
+    /* margin: 50px; */
+    display:grid;   
+    grid-template-columns: 1fr 2fr;
+
+    box-shadow: 0 35px 55px rgba(0, 0, 0, 0.1);
+}
+
+.container .left_side {
+    position: relative;
+    background: rgb(1, 64, 93);
+    /* background: #453305; */
+    padding: 40px;
+}
+
+.profileText {
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-bottom: 20px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+
+/* size of image */
+.profileText .imgLeft {
+    position: relative;
+
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profileText .imgLeft img {
+    position: absolute;
+    top:0; left:0;
+    width: 130%; height: 100%;
+    object-fit: cover;
+}
+
+.profileText h2 {
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-align: center;
+
+    font-weight: 600;
+    line-height: 1.4em;
+}
+
+.profileText .underName {
+    color: rgb(255, 255, 255);
+
+    text-align: center;
+    font-size: 1.3em;
+
+    font-weight: 300;
+    line-height: 1.4em;
+}
+
+.Info {
+    padding-top:40px;
+
+    padding-bottom: 40px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.title img{
+    color: #fff;
+}
+
+.title{
+    color: #fff;
+    
+    align-items: center;
+    justify-content: center;
+
+    display: flex;
+    padding-left: 20px;
+
+    
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.Info ul {
+    position: relative;
+}
+
+.Info ul li {
+    position: relative;
+    list-style: none;
+    margin: 10px 0;  
+    cursor: pointer;
+}
+
+.Info ul li .icon {
+    display: inline-block;
+    font-size: 18px;
+    width: 30px;
+    
+    color: #17d7ec;
+    /* color: rgb(15, 127, 179); */
+    /* color: #17d7eca0;; */
+}
+
+.Info ul li span {
+    color: #fff;
+    font-weight: 300;
+}
+
+/* About skills */
+
+.skill-container {
+    padding-top: 10px;
+    
+    /* margin-top: 1000px; */
+    width: 350px;
+    margin: 30px auto;
+
+    /* margin-top: 20px; */
+    padding-bottom: 50px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+
+.skill-info {
+    flex:1;
+}
+.skill-info span {
+    display: flex;
+    margin-bottom: 10px;
+    margin-top:20px;
+    font-size: 18px;
+    color: #fff;
+}
+
+
+/* ABOUT HOBBIES */
+.hobbies-container ul li {
+    position: relative;
+    list-style: none;
+    margin: 10px 0;  
+    cursor: pointer;
+}
+
+
+.hobbies-container ul li span {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.hobbies-container ul li .icon {
+    display: inline-block;
+    font-size: 25px;
+    width: 30px;
+    
+    color: #17d7ec;
+}
+
+.hobbies-container ul li .text {
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 10px;
+
+}
+.progress-bar {
+    display: flex;
+    width: 100%;
+    background: #ccc;
+    height: 8px;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 8px;
+    /* background:#1b252f; */
+    /* background:#03a9f4; */
+    /* background: #17d7ec; */
+    background: rgb(15, 127, 179);  
+    /* background: #17d7eca0; */
+    width:0;
+    transition: width 0.5s;
+}
+
+.skill-CPP .progress {width: 70%;}
+.skill-HTML .progress {width: 45%;}
+.skill-CSS .progress {width: 55%;}
+.skill-communication .progress {width: 75%;}
+
+
+
+.container .right_side {
+    position: relative;
+    background: rgba(255, 255, 255, 0.93);
+    padding: 40px;
+}
+
+/* icon of right side  */
+.circle {
+    font-size: 22px;
+    
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 20px;
+}
+.circle.circle--large {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    /* background: #17d7ec; */
+    /* background: #17d7eca0; */
+    background: rgb(15, 127, 179);
+    color: #ffffff;
+}
+
+
+
+.section:not(.last-child) {
+    margin-bottom: 50px;
+}
+.section_title {
+    font-size: 28px;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    background-color: rgb(1, 64, 93);
+    color: #fff;
+}
+
+.section_content {
+    padding-left: 110px;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.section_content ul li {
+    padding-top: 10px;
+}
+.section .box {
+    display: flex;  
+    flex-direction: row;
+    margin: 20px 0;
+    padding-left: 90px;
+    font-size: 20px;
+}
+
+.section .box a {
+    padding-left: 25px;
+}
+.section .box .year_education {
+    min-width: 150px;
+}
+.section .box .year_education h5 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.section .box .text h4 {
+    text-transform: uppercase;
+    color: #0f7fb3;
+    font-size: 22px;
+}
+
